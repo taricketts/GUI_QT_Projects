@@ -21,6 +21,7 @@ private slots:
 private:
     Ui::FindCrap *ui;
     void getTextFile();
+    int total_words;
 };
 
 #endif // FINDCRAP_H

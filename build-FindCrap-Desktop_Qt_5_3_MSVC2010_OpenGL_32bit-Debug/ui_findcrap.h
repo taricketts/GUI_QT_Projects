@@ -28,9 +28,9 @@ class Ui_FindCrap
 {
 public:
     QVBoxLayout *verticalLayout;
-    QTextEdit *textEdit;
     QHBoxLayout *horizontalLayout;
-    QLabel *label;
+    QLabel *countLb;
+    QTextEdit *textEdit;
     QLineEdit *lineEdit;
     QPushButton *goButton;
 
@@ -38,23 +38,23 @@ public:
     {
         if (FindCrap->objectName().isEmpty())
             FindCrap->setObjectName(QStringLiteral("FindCrap"));
-        FindCrap->resize(400, 300);
+        FindCrap->resize(637, 422);
         verticalLayout = new QVBoxLayout(FindCrap);
         verticalLayout->setSpacing(6);
         verticalLayout->setContentsMargins(11, 11, 11, 11);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
-        textEdit = new QTextEdit(FindCrap);
-        textEdit->setObjectName(QStringLiteral("textEdit"));
-
-        verticalLayout->addWidget(textEdit);
-
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setSpacing(6);
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
-        label = new QLabel(FindCrap);
-        label->setObjectName(QStringLiteral("label"));
+        countLb = new QLabel(FindCrap);
+        countLb->setObjectName(QStringLiteral("countLb"));
 
-        horizontalLayout->addWidget(label);
+        horizontalLayout->addWidget(countLb);
+
+        textEdit = new QTextEdit(FindCrap);
+        textEdit->setObjectName(QStringLiteral("textEdit"));
+
+        horizontalLayout->addWidget(textEdit);
 
         lineEdit = new QLineEdit(FindCrap);
         lineEdit->setObjectName(QStringLiteral("lineEdit"));
@@ -78,7 +78,7 @@ public:
     void retranslateUi(QWidget *FindCrap)
     {
         FindCrap->setWindowTitle(QApplication::translate("FindCrap", "FindCrap", 0));
-        label->setText(QApplication::translate("FindCrap", "Search for:", 0));
+        countLb->setText(QApplication::translate("FindCrap", "WC =  ", 0));
         goButton->setText(QApplication::translate("FindCrap", "Go!", 0));
     } // retranslateUi
 

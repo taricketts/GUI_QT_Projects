@@ -8,6 +8,7 @@ FindCrap::FindCrap(QWidget *parent) :
     ui(new Ui::FindCrap)
 {
     ui->setupUi(this);
+    total_words = 0;
     getTextFile();
 }
 
@@ -19,7 +20,14 @@ FindCrap::~FindCrap()
 void FindCrap::on_goButton_clicked()
 {
     QString word = ui->lineEdit->text();
-    ui->textEdit->find(word, QTextDocument::FindWholeWords);
+
+    while(ui->textEdit->find(word, QTextDocument::FindWholeWords) == true){
+        //ui->textEdit->find(word, QTextDocument::FindWholeWords); Not needed I guess. Only shoots out 1's for WC (Word Count)
+        total_words++;
+    }
+    QString total = QString::number(total_words);
+    ui->countLb->setText("WC = " + total);
+    total_words = 0;
 }
 
 void FindCrap::getTextFile(){
