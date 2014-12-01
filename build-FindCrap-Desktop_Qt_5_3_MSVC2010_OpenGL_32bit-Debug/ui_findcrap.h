@@ -13,13 +13,11 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
-#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QTextEdit>
-#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -27,48 +25,28 @@ QT_BEGIN_NAMESPACE
 class Ui_FindCrap
 {
 public:
-    QVBoxLayout *verticalLayout;
-    QHBoxLayout *horizontalLayout;
-    QLabel *countLb;
-    QTextEdit *textEdit;
     QLineEdit *lineEdit;
     QPushButton *goButton;
+    QLabel *countLb;
+    QTextEdit *textEdit;
 
     void setupUi(QWidget *FindCrap)
     {
         if (FindCrap->objectName().isEmpty())
             FindCrap->setObjectName(QStringLiteral("FindCrap"));
-        FindCrap->resize(637, 422);
-        verticalLayout = new QVBoxLayout(FindCrap);
-        verticalLayout->setSpacing(6);
-        verticalLayout->setContentsMargins(11, 11, 11, 11);
-        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
-        horizontalLayout = new QHBoxLayout();
-        horizontalLayout->setSpacing(6);
-        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
-        countLb = new QLabel(FindCrap);
-        countLb->setObjectName(QStringLiteral("countLb"));
-
-        horizontalLayout->addWidget(countLb);
-
-        textEdit = new QTextEdit(FindCrap);
-        textEdit->setObjectName(QStringLiteral("textEdit"));
-
-        horizontalLayout->addWidget(textEdit);
-
+        FindCrap->resize(637, 325);
         lineEdit = new QLineEdit(FindCrap);
         lineEdit->setObjectName(QStringLiteral("lineEdit"));
-
-        horizontalLayout->addWidget(lineEdit);
-
+        lineEdit->setGeometry(QRect(490, 252, 137, 22));
         goButton = new QPushButton(FindCrap);
         goButton->setObjectName(QStringLiteral("goButton"));
-
-        horizontalLayout->addWidget(goButton);
-
-
-        verticalLayout->addLayout(horizontalLayout);
-
+        goButton->setGeometry(QRect(490, 280, 137, 22));
+        countLb = new QLabel(FindCrap);
+        countLb->setObjectName(QStringLiteral("countLb"));
+        countLb->setGeometry(QRect(12, 12, 61, 16));
+        textEdit = new QTextEdit(FindCrap);
+        textEdit->setObjectName(QStringLiteral("textEdit"));
+        textEdit->setGeometry(QRect(90, 10, 371, 291));
 
         retranslateUi(FindCrap);
 
@@ -78,8 +56,8 @@ public:
     void retranslateUi(QWidget *FindCrap)
     {
         FindCrap->setWindowTitle(QApplication::translate("FindCrap", "FindCrap", 0));
-        countLb->setText(QApplication::translate("FindCrap", "WC =  ", 0));
         goButton->setText(QApplication::translate("FindCrap", "Go!", 0));
+        countLb->setText(QApplication::translate("FindCrap", "WC =  ", 0));
     } // retranslateUi
 
 };
